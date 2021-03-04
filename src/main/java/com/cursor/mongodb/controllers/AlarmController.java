@@ -64,7 +64,7 @@ public class AlarmController {
     @DeleteMapping("{id}")
     public String deleteAlarm(@PathVariable("id") String id) {
         Document deletedAlarm = alarmDao.deleteById(id);
-        return deletedAlarm != null ? alarmDao.deleteById(id).toJson() : "";
+        return deletedAlarm != null ? deletedAlarm.toJson() : "";
     }
 
     private String findIterableDocumentToString(FindIterable<Document> documentFromMongo) {
